@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface User2Dao {
     List findAll();
-    List add();
 }
