@@ -1,0 +1,20 @@
+#配置端口号和上下文路径
+server:
+  port: 8080
+  servlet:
+    context-path: /boot
+spring:
+  application:
+    name: server-home
+  datasource:
+    url: jdbc:mysql://localhost:3306/quanxian
+    driver-class-name: org.gjt.mm.mysql.Driver
+    username: root
+    password: 980920
+  devtools:
+    remote:
+      restart:
+       enabled: true
+  resources:
+      static-locations: classpath:/templates/,classpath:/static/
+
