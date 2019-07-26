@@ -1,4 +1,4 @@
-package com.aaa.fivegroup.demo.controller;/*@ClassName
+package com.fivegroup.controller;/*@ClassName
  *@Author:陈昊
  *@Date:Created in 21:46
  *@Version $
