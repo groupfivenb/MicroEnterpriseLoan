@@ -7,7 +7,7 @@ spring:
   application:
     name: server-home
   datasource:
-    url: jdbc:mysql://localhost:3306/quanxian
+    url: jdbc:mysql://192.168.11.144:3306/quanxian
     driver-class-name: org.gjt.mm.mysql.Driver
     username: root
     password: 980920

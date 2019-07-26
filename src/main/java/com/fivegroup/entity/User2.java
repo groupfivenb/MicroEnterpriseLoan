@@ -13,7 +13,6 @@ public class User2 {
     private String name ;
     private String username;
     private  String password;
-    private  String age;
     private  String sex;
 
 }
