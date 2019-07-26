@@ -1,4 +1,4 @@
-package com.aaa.fivegroup.demo;
+package com.fivegroup;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
