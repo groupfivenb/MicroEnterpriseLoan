@@ -13,6 +13,6 @@
         select * from custom limit #{start},#{pageSize}
     </select>
     <select id="findAllCount" resultType="int">
-        select count(*) from custom limit #{start},#{pageSize}
+        select count(*) from custom
     </select>
 </mapper>
