@@ -14,6 +14,7 @@ public class User2DaoImpl implements User2Dao {
     @Override
     public List findAll() {
         System.out.println("aaaaa");
+        System.out.println("哈哈");
         return null;
     }
 }
