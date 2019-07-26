@@ -1,4 +1,4 @@
-package com.aaa.fivegroup.demo.entity;/*@ClassName
+package com.fivegroup.entity;/*@ClassName
  *@Author:陈昊
  *@Date:Created in 9:37
  *@Version $
