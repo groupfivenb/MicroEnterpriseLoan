@@ -7,7 +7,7 @@ spring:
   application:
     name: server-home
   datasource:
-    url: jdbc:mysql://localhost:3306/quanxian
+    url: jdbc:mysql://localhost:3306/loandb
     driver-class-name: org.gjt.mm.mysql.Driver
     username: root
     password: 980920
@@ -17,4 +17,8 @@ spring:
        enabled: true
   resources:
       static-locations: classpath:/templates/,classpath:/static/
+#  配置mybatis
+mybatis:
+  mapper-locations: mapper/*.xml
+
 

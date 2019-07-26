@@ -26,11 +26,11 @@ public class ShiroConfig {
         //配置默认安全管理器
         bean.setSecurityManager(defaultWebSecurityManager);
         // 设置登录成功跳转Url
-        bean.setSuccessUrl("/boot/templates/menu.html");
+        bean.setSuccessUrl("/boot/templates/login/menu.html");
         // 设置登录跳转Url
-        bean.setLoginUrl("/boot/static/index.html");
+        bean.setLoginUrl("/boot/static/start.html");
         // 设置未授权提示Url+
-        bean.setUnauthorizedUrl("/boot/templates/error.html");
+        //bean.setUnauthorizedUrl("/boot/templates/login/error.html");
 
         /**
          * anon：匿名用户可访问
@@ -41,7 +41,7 @@ public class ShiroConfig {
          **/
         Map<String,String>filterMap=new LinkedHashMap<>();
 
-        filterMap.put("/user/logout","logout");
+        filterMap.put("/custom/logout","logout");
         filterMap.put("/test/*","authc");
         bean.setFilterChainDefinitionMap(filterMap);
         return bean;

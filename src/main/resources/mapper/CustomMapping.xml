@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fivegroup.dao.CustomDao">
+    <select id="findByUsername" parameterType="java.lang.String" resultType="com.fivegroup.entity.Custom">
+        select * from custom where username=#{username}
+    </select>
+    <insert id="reg" parameterType="java.util.Map">
+        insert into custom(name,age,username,password)value(#{name},#{age},#{username},#{password});
+    </insert>
+    <select id="findAll" resultType="java.util.Map">
+        select * from custom limit #{start},#{pageSize}
+    </select>
+    <select id="findAllCount" resultType="int">
+        select count(*) from custom limit #{start},#{pageSize}
+    </select>
+</mapper>
