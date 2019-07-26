@@ -1,4 +1,4 @@
-package com.aaa.fivegroup.demo;
+package com.fivegroup;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
