@@ -13,5 +13,6 @@ public class User2 {
     private String role;
     private  String password;
     private  String age;
+    private  String sex;
 
 }
