@@ -5,10 +5,12 @@ package com.fivegroup.service;/*@ClassName
  */
 
 import com.fivegroup.dao.User2Dao;
+import com.fivegroup.entity.User2;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @Service
 public class User2ServiceImpl implements User2Service {
     @Resource
@@ -17,5 +19,10 @@ public class User2ServiceImpl implements User2Service {
     public List findAll() {
         System.out.println(dao.findAll());
         return dao.findAll();
+    }
+
+    @Override
+    public User2 findByName(String name) {
+        return null;
     }
 }

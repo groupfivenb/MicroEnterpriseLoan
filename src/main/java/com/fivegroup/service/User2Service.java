@@ -4,8 +4,11 @@ package com.fivegroup.service;/*@ClassName
  *@Version $
  */
 
+import com.fivegroup.entity.User2;
+
 import java.util.List;
 
 public interface User2Service {
     List findAll();
+    User2 findByName(String name);
 }
