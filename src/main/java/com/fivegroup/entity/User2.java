@@ -8,8 +8,9 @@ import lombok.Data;
 
 @Data
 public class User2 {
-    private Integer id12;
+    private int id;
+    private int age;
     private String name ;
-    private String role;
+    private String username;
     private  String password;
 }
