@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--<script src="vue/vue.js"></script>
+<script src="vue/vue.js"></script>
 <script src="vue/axios.min.js"></script>
 <script src="vue/index.js"></script>
-<link rel="stylesheet" href="vue/index.css">
-<script src="js/bootstrap.js"></script>-->
 <script src="js/jquery-1.9.1.js"></script>
-
-
-<!--先引入vue.js库-->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<!--axios-->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-<!-- 引入组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="vue/index.css">
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +15,7 @@
 
 
 <div id="app">
-    <el-button @click="page">查看所有用户</el-button>
+    <el-button @click="findAll">查看所有用户</el-button>
 
     <a href="#">{{message}}</a><a id="a1" style="display: none" href="/boot/custom/logout">注销</a>
     <el-row>
@@ -36,7 +26,7 @@
                 <el-input v-model="form.username" placeholder="请输入账号"></el-input>
             </el-form-item>
             <el-form-item label="密码：">
-                <el-input type="password"  v-model="form.password" placeholder="请输入密码"></el-input>
+                <el-input type="password" v-model="form.password" placeholder="请输入密码"></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="login">登录</el-button>
@@ -53,30 +43,17 @@
             <!--<el-input v-model="form.empno" type="hidden" autocomplete="off"></el-input>-->
 
             <el-form-item label="姓名" :label-width="formLabelWidth">
-                <el-input @focus="nameInputFocus" @blur="nameInputBlur" v-model="form2.name" style="width: 300px" autocomplete="off"></el-input>
-                <!--<i class="el-icon-warning"></i>-->
-                <div id="i1" style="display: none">
-                    <i class="el-icon-warning"></i><a>{{msgName}}</a>
-                </div>
+                <el-input v-model="form2.name" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item label="年龄" :label-width="formLabelWidth">
-                <el-input v-model="form2.age" style="width: 300px" autocomplete="off"></el-input>
-                <div id="i2" style="display: none">
-                    <i class="el-icon-warning"></i><a>年龄不能为空</a>
-                </div>
+                <el-input v-model="form2.age" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item label="账户" :label-width="formLabelWidth">
-                <el-input v-model="form2.username" style="width: 300px" autocomplete="off"></el-input>
-                <div id="i3" style="display: none">
-                    <i class="el-icon-warning"></i><a>账号不能为空</a>
-                </div>
+                <el-input v-model="form2.username" autocomplete="off"></el-input>
             </el-form-item>
             <el-form-item label="密码" :label-width="formLabelWidth">
-                <el-input v-model="form2.password" style="width: 300px" autocomplete="off"></el-input>
+                <el-input v-model="form2.password" autocomplete="off"></el-input>
             </el-form-item>
-            <div id="i4" style="display: none">
-                <i class="el-icon-warning"></i><a>密码不能为空</a>
-            </div>
         </el-form>
         <div slot="footer" class="dialog-footer">
             <el-button type="danger" @click="dialogFormVisible = false">取 消</el-button>
@@ -91,17 +68,16 @@
             <el-table-column
                     prop="id"
                     label="ID"
-                    width="100">
+                    width="180">
             </el-table-column>
             <el-table-column
                     prop="name"
                     label="名字"
-                    width="100">
+                    width="180">
             </el-table-column>
             <el-table-column
                     prop="age"
-                    label="年龄"
-                    width="100">
+                    label="年龄">
             </el-table-column>
             <el-table-column
                     prop="username"
@@ -131,22 +107,31 @@
                 :total="total">
         </el-pagination>
         <div slot="footer" class="dialog-footer">
+            <el-button type="danger" @click="dialogFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="reg">确 定</el-button>
         </div>
     </el-dialog>
 
+
+    <!--<el-dialog
+            title="提示"
+            :visible.sync="dialogVisible"
+            width="30%"
+            :before-close="handleClose">
+        <span>这是一段信息</span>
+        <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+  </span>
+    </el-dialog>
+    <el-button type="text" @click="open">点击打开 Dialog</el-button>-->
 </div>
-<input type="text" id="input1"><input type="button" value="测试" onclick="ceshi()">
+
 </body>
 <script>
-    // 正则表达式（小写字母开头1-n个数字结尾）
-    var regExp=(/^([a-zA-Z0-9._-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/);
-    function ceshi() {
-        alert(regExp.test($("#input1").val()));
-    }
     var vue = new Vue({
         el: "#app",
         data: {
-            msgName:"",
             isshow: true,
             message: "请登录",
             form: {
@@ -174,46 +159,14 @@
                 axios.post("/boot/custom/login", this.form)
                     .then(function (response) {
                         if (response.data.msg == "suc") {
-                            self.$message({
-                                type: 'success',
-                                message: '登陆成功!'
-                            });
                             self.message = "欢迎您！" + response.data.custom.name;
-                            self.url = "/boot/custom/page";
+                            self.url = "/boot/custom/findAll";
                             $("#a1").css("display", "block");
-                            self.isshow = false;
+                            this.isshow = !self.isshow;
                         } else {
                             self.message = "信息有误！请重新输入！";
                         }
                     })
-            },
-            // Input失焦事件
-            nameInputBlur:function () {
-                var self=this;
-                if (self.form2.name==""){
-                    self.msgName="姓名不能为空哦！";
-                    $("#i1").css("display","block");
-                    //验证正则表达式
-                }else if(!regExp.test(self.form2.name))
-                    {
-                        self.msgName="请注意格式!(邮箱格式哦！)";
-                        $("#i1").css("display","block");
-                    }
-            },
-            nameInputFocus:function () {
-                $("#i1").css("display","none");
-            },
-            // 改变当前页数
-            handleCurrentChange:function(val) {
-                console.log('当前页:'+ val);
-                this.currentPage=val;
-                this.page();
-            },
-            // 改变每页条数
-            handleSizeChange:function(val) {
-                console.log('每页条数:'+val);
-                this.pageSize=val;
-                this.page();
             },
             // 显示模态框
             open: function () {
@@ -243,7 +196,7 @@
 
                     })
             },
-            page: function (response) {
+            findAll: function (response) {
                 var self = this;
                 if (self.url == "") {
                     alert("请先登录!");

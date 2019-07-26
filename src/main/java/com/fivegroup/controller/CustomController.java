@@ -26,11 +26,6 @@ public class CustomController {
     @Autowired
     private CustomService service;
 
-    /**
-     *Shiro登录认证
-     * @param map
-     * @return
-     */
     @RequestMapping("/login")
     @ResponseBody
     public Object login(@RequestBody Map map){
@@ -58,12 +53,6 @@ public class CustomController {
         resMap.put("custom",service.findByUsername(username));
         return resMap;
     }
-
-    /**
-     *用户注册
-     * @param map
-     * @return
-     */
     @RequestMapping("/reg")
     @ResponseBody
     public Object reg(@RequestBody Map map){
@@ -72,40 +61,12 @@ public class CustomController {
         }
             return service.reg(map);
     }
-
-    /**
-     * 分页查询
-     * @param map
-     * @return
-     */
-    @RequestMapping("/page")
+    @RequestMapping("/findAll")
     @ResponseBody
     public Object page(@RequestBody Map map) {
         Map resMap=new HashMap();
         resMap.put("total",service.findAllCount(map));
         resMap.put("customList",service.findAll(map));
             return resMap;
-    }
-
-    /**
-     *Custom修改
-     * @param map
-     * @return
-     */
-    @RequestMapping("/update")
-    @ResponseBody
-    public Object update(@RequestBody Map map){
-       return null;
-    }
-
-    /**
-     * Custom删除
-     * @param map
-     * @return
-     */
-    @RequestMapping("/delete")
-    @ResponseBody
-    public Object delete(@RequestBody Map map){
-        return null;
     }
 }
