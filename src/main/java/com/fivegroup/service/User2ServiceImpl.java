@@ -1,11 +1,10 @@
-package com.aaa.fivegroup.demo.service;/*@ClassName
+package com.fivegroup.service;/*@ClassName
  *@Author:陈昊
  *@Date:Created in 9:39
  *@Version $
  */
 
-import com.aaa.fivegroup.demo.dao.User2Dao;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fivegroup.dao.User2Dao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

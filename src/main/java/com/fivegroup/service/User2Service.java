@@ -1,4 +1,4 @@
-package com.aaa.fivegroup.demo.service;/*@ClassName
+package com.fivegroup.service;/*@ClassName
  *@Author:陈昊
  *@Date:Created in 9:39
  *@Version $

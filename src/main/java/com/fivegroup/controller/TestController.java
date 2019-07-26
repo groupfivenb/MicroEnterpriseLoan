@@ -1,10 +1,10 @@
-package com.aaa.fivegroup.demo.controller;/*@ClassName
+package com.fivegroup.controller;/*@ClassName
  *@Author:陈昊
  *@Date:Created in 21:46
  *@Version $
  */
 
-import com.aaa.fivegroup.demo.service.User2Service;
+import com.fivegroup.service.User2Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
