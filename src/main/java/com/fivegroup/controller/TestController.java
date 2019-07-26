@@ -4,7 +4,7 @@ package com.fivegroup.controller;/*@ClassName
  *@Version $
  */
 
-import com.aaa.fivegroup.demo.service.User2Service;
+import com.fivegroup.service.User2Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

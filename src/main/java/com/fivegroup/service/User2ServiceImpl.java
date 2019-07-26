@@ -5,8 +5,6 @@ package com.fivegroup.service;/*@ClassName
  */
 
 import com.fivegroup.dao.User2Dao;
-import com.fivegroup.service.User2Service;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
