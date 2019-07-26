@@ -9,4 +9,5 @@ package com.fivegroup.entity;
          */
 public class User1 {
     private String AA;
+    private String BB;
 }
