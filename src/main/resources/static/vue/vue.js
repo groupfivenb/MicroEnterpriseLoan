@@ -537,7 +537,7 @@
   var isAndroid = (UA && UA.indexOf('android') > 0) || (weexPlatform === 'android');
   var isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || (weexPlatform === 'ios');
   var isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
-  var isPhantomJS = UA && /phantomjs/.test(UA);
+  var isPhantomJS = UA && /phantom../interface/js.test(UA);
   var isFF = UA && UA.match(/firefox\/(\d+)/);
 
   // Firefox has a "watch" function on Object.prototype...
@@ -1826,7 +1826,7 @@
 
   function handleError (err, vm, info) {
     // Deactivate deps tracking while processing error handler to avoid possible infinite rendering.
-    // See: https://github.com/vuejs/vuex/issues/1505
+    // See: https://github.com/vue../interface/jsvuex/issues/1505
     pushTarget();
     try {
       if (vm) {
@@ -7212,7 +7212,7 @@
 
 
   function parseModel (val) {
-    // Fix https://github.com/vuejs/vue/pull/7730
+    // Fix https://github.com/vue../interface/jsvue/pull/7730
     // allow v-model="obj.val " (trailing whitespace)
     val = val.trim();
     len = val.length;
@@ -9048,7 +9048,7 @@
         } else {
           console[console.info ? 'info' : 'log'](
             'Download the Vue Devtools extension for a better development experience:\n' +
-            'https://github.com/vuejs/vue-devtools'
+            'https://github.com/vue../interface/jsvue-devtools'
           );
         }
       }
