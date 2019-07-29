@@ -69,4 +69,8 @@ public class CustomController {
         resMap.put("customList",service.findAll(map));
             return resMap;
     }
+    @RequestMapping("/testf")
+    public String testf(){
+        return "index2";
+    }
 }
