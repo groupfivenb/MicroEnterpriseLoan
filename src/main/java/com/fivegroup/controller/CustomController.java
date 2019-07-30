@@ -71,6 +71,6 @@ public class CustomController {
     }
     @RequestMapping("/testf")
     public String testf(){
-        return "index2";
+        return "abc";
     }
 }
